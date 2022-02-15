@@ -4,18 +4,29 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "lite-server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "ganache": "./node_modules/ganache-cli/cli.js -p 7545 -a 2 -e 100 -l 8000000 -m \"candy maple cake sugar pudding cream honey rich smooth crumble sweet treat\"",
+    "test:ERC721": "truffle test --network test ./test/TestERC721Mintable.js",
+    "test:Zokrates": "truffle test --network test ./test/TestSquareVerifier.js",
+    "test:Soln": "truffle test --network test ./test/TestSolnSquareVerifier.js",
+    "test:all": "npm run test:ERC721 && npm run test:Soln && npm run test:Zokrates",
+    "zokrates": "rm -rf ./proofs && docker run -v $(pwd)/zokrates/code:/home/zokrates/code zokrates/zokrates /bin/bash -c \"cd /home/zokrates/code/square && ./generate\" && cp -f ./zokrates/code/square/verifier.sol ./contracts/ZokratesSquareVerifier.sol && mv -f ./zokrates/code/square/proofs ./proofs",
+    "deploy:local": "truffle migrate --network development --reset",
+    "deploy:rinkeby": "truffle migrate --network rinkeby",
+		"mint": "mint.js"
   },
   "keywords": [],
   "author": "pk <pkrasam@gmail.com> (https://ipfs.infura.io/ipfs/QmSXiR9Khm3yo1J67nUopvVBxFJ8YGN2fUGZ34Etr3m92x/)",
   "license": "MIT",
   "devDependencies": {
-    "lite-server": "2.4.0"
-  },
-  "dependencies": {
+    "@openzeppelin/contracts": "^4.4.2",
+    "@truffle/hdwallet-provider": "^2.0.3",
+    "dotenv": "^16.0.0",
+    "ganache-cli": "^6.12.2",
     "openzeppelin-solidity": "^2.2.0",
     "solc": "^0.5.2",
-    "solc-js": "^0.5.2"
-  }
+    "solc-js": "^0.5.2",
+    "truffle": "^5.4.32",
+    "web3": "^1.7.0"
+  },
+  "dependencies": {}
 }

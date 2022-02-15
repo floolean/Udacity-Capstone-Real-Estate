@@ -1,0 +1,79 @@
+{
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Deployment Test (debug)",
+			"cwd": "${workspaceFolder}",
+			"program": "${workspaceRoot}/node_modules/truffle/build/cli.bundled.js",
+			"args": [
+					"migrate",
+					"--network",
+					"test",
+					"--reset"
+			]
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Deployment (rinkeby)",
+			"cwd": "${workspaceFolder}",
+			"program": "${workspaceRoot}/node_modules/truffle/build/cli.bundled.js",
+			"args": [
+					"migrate",
+					"--network",
+					"rinkeby"
+			]
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "ERC721 truffle test (debugable)",
+			"cwd": "${workspaceFolder}",
+			"program": "${workspaceRoot}/node_modules/truffle/build/cli.bundled.js",
+			"args": [
+					"test",
+					"--network",
+					"test",
+					"./test/TestERC721Mintable.js"
+			]
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Zokrates truffle test (debugable)",
+			"cwd": "${workspaceFolder}",
+			"program": "${workspaceRoot}/node_modules/truffle/build/cli.bundled.js",
+			"args": [
+					"test",
+					"--network",
+					"test",
+					"./test/TestSquareVerifier.js"
+			]
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Soln truffle test (debugable)",
+			"cwd": "${workspaceFolder}",
+			"program": "${workspaceRoot}/node_modules/truffle/build/cli.bundled.js",
+			"args": [
+					"test",
+					"--network",
+					"test",
+					"./test/TestSolnSquareVerifier.js"
+			]
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Mint NFTs",
+			"cwd": "${workspaceFolder}",
+			"program": "${workspaceRoot}/mint.js"
+		},
+	]
+}

@@ -1,0 +1,14 @@
+#!/bin/bash
+rm *.json *.key out *.sol witness
+rm -rf ./proofs || yes
+mkdir proofs
+zokrates compile -i square.code
+zokrates setup
+zokrates export-verifier
+
+for i in {1..5}
+do
+	zokrates compute-witness -a $i $((i*i))
+  zokrates generate-proof --proof-path "./proofs/${i}_proof.json"
+done
+

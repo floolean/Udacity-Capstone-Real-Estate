@@ -1,0 +1,10 @@
+.env
+/node_modules/
+zokrates/.bash_history
+zokrates/code/square/out
+zokrates/code/square/witness
+zokrates/code/square/abi.json
+zokrates/code/square/proving.key
+zokrates/code/square/verifier.sol
+zokrates/code/square/verification.key
+zokrates/code/square/proofs
